@@ -35,11 +35,12 @@ def authenticate(request):
 def profile(request, user_id=1):
 	response = requests.get('http://127.0.0.1:3000/faculty_profile/'+str(user_id))
 	response = response.json()
-	
+	print(response)
 	if response['status'] == 0:
 		return redirect("http://localhost:8000/faculty/home/"+str(user_id))
 	else:
-		return render(request, 'profile.html', response)
+		context = response['data']
+		return render(request, 'profile.html', context)
 		print(response)
 
 		

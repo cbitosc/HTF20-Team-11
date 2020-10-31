@@ -31,7 +31,8 @@ router.get('/:PersonId',(req,res,next)=>{
                 }
                 else{
                     BodyofPage.status = 1;
-                    BodyofPage.notifications.reverse();  
+                    BodyofPage.notifications.reverse();
+                    BodyofPage.notifications.slice(0,5);
                     res.status(200).json(BodyofPage);
                     for(item in result.notifications){
                         result.notifications[item].status = 1;

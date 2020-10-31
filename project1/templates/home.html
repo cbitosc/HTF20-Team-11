@@ -12,20 +12,31 @@
             function set_url_profile(){
                 var url = document.URL.toString();
                 url = url.split("/")
-                url = url.slice(-2, ).toString();
-                console.log(url)
-                document.getElementById('profile_page').href="http://localhost:8000/faculty/profile/"+url+"/"
+                urll = ''
+                url = url.slice(-2, )
+                url.forEach(element => {
+                    urll += element 
+                });
+                document.getElementById('profile_page').href="http://localhost:8000/faculty/profile/"+urll+"/"
             }
             function set_url_leaves(){
                 var url = document.URL.toString();
                 url = url.split("/")
-                url = url.slice(-2, ).toString();
-                onsole.log(url)
-                document.getElementById('leaves_page').href="http://localhost:8000/faculty/leaves/"+url+"/"
+                url = url.slice(-2, );
+                urll = ''
+                url.forEach(element => {
+                    urll += element 
+                });
+                document.getElementById('leaves_page').href="http://localhost:8000/faculty/leaves/"+urll+"/"
+            }
+            function set_url_home(){
+                var url = document.URL.toString();
+                document.getElementById('home').href=url
             }
             function myfunction(){
                 set_url_profile();
                 set_url_leaves();
+                set_home_url();
             }
         </script>
     </head>
@@ -39,7 +50,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  <a id='home' class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
                 </li>
 
                 <li class="nav-item">
@@ -67,7 +78,7 @@
                 <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="inputEmail4">Name</label>
-                    <input type="email" class="form-control" id="inputEmail4">
+                    <input type="text" class="form-control" id="inputEmail4">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputPassword4">ID</label>
@@ -83,8 +94,6 @@
                         <option>EEE</option>
                         <option>MECH</option>
                         <option>CIVIL</option>
-
-
                       </select>
                 </div>
                 </div>
@@ -108,12 +117,6 @@
                     </div>
                 <div>
                 <div class="form-group">
-                <!-- <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                    Click Checkbox to Accept
-                    </label>
-                </div> -->
                 </div>
                 <button type="submit" class="btn btn-primary" onclick="alertmsg()">Submit</button>
             </form>
